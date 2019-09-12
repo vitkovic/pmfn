@@ -8,8 +8,10 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Deduction'), ['action' => 'add']) ?></li>
+        <hr/>
         <li><?= $this->Html->link(__('List Cards'), ['controller' => 'Cards', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Card'), ['controller' => 'Cards', 'action' => 'add']) ?></li>
+        <hr/>
         <li><?= $this->Html->link(__('List Turnovers'), ['controller' => 'Turnovers', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Turnover'), ['controller' => 'Turnovers', 'action' => 'add']) ?></li>
     </ul>
@@ -21,9 +23,11 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('amount') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('percentage') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('card_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('turnover_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
+                 <th scope="col"><?= $this->Paginator->sort('state') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -31,10 +35,12 @@
             <?php foreach ($deductions as $deduction): ?>
             <tr>
                 <td><?= $this->Number->format($deduction->id) ?></td>
-                <td><?= $this->Number->format($deduction->amount) ?></td>
+                <td><?= $this->Number->format($deduction->amount,['places' => 2]) ?></td>
+                <td><?= $this->Number->format($deduction->percentage,['places' => 2,'after' => '%']) ?></td>
                 <td><?= $deduction->has('card') ? $this->Html->link($deduction->card->name, ['controller' => 'Cards', 'action' => 'view', $deduction->card->id]) : '' ?></td>
                 <td><?= $deduction->has('turnover') ? $this->Html->link($deduction->turnover->id, ['controller' => 'Turnovers', 'action' => 'view', $deduction->turnover->id]) : '' ?></td>
                 <td><?= h($deduction->description) ?></td>
+                <td><?php if ($this->Number->format($deduction->state)==1) {echo "Static";} else {echo "Dynamic";} ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $deduction->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $deduction->id]) ?>

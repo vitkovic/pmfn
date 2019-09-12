@@ -9,10 +9,13 @@
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Edit Turnover'), ['action' => 'edit', $turnover->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Turnover'), ['action' => 'delete', $turnover->id], ['confirm' => __('Are you sure you want to delete # {0}?', $turnover->id)]) ?> </li>
+        <hr>
         <li><?= $this->Html->link(__('List Turnovers'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Turnover'), ['action' => 'add']) ?> </li>
+        <hr>
         <li><?= $this->Html->link(__('List Businesses'), ['controller' => 'Businesses', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Business'), ['controller' => 'Businesses', 'action' => 'add']) ?> </li>
+        <hr>
         <li><?= $this->Html->link(__('List Deductions'), ['controller' => 'Deductions', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Deduction'), ['controller' => 'Deductions', 'action' => 'add']) ?> </li>
     </ul>
@@ -38,11 +41,11 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Amount') ?></th>
-            <td><?= $this->Number->format($turnover->Amount) ?></td>
+            <td><?= $this->Number->format($turnover->Amount,['places' => 2]) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Deduction') ?></th>
-            <td><?= $this->Number->format($turnover->Deduction) ?></td>
+            <td><?= $this->Number->format($turnover->Deduction,['places' => 2]) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created At') ?></th>

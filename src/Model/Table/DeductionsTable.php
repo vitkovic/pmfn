@@ -60,10 +60,14 @@ class DeductionsTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->decimal('amount')
-            ->requirePresence('amount', 'create')
-            ->notEmptyString('amount');
+            ->decimal('percentage')
+            ->requirePresence('percentage', 'create')
+            ->notEmptyString('percentage');
 
+        $validator
+        ->decimal('amount');
+       
+            
         $validator
             ->scalar('description')
             ->maxLength('description', 255)

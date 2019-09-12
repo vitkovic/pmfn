@@ -31,9 +31,9 @@
             echo $this->Form->control('business_name');
             echo $this->Form->control('Description');
             echo $this->Form->control('created_at');
-            echo $this->Form->control('created_by');
+          //  echo $this->Form->control('created_by');
             echo $this->Form->control('last_modified_at');
-            echo $this->Form->control('last_modified_by');
+          //  echo $this->Form->control('last_modified_by');
             echo $this->Form->control('manager_id', ['options' => $managers]);
             echo $this->Form->control('vendor_id', ['options' => $vendors]);
         ?>

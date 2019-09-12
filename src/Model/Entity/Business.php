@@ -32,6 +32,7 @@ class Business extends Entity
      * @var array
      */
     protected $_accessible = [
+        'id' => true,
         'business_name' => true,
         'Description' => true,
         'created_at' => true,

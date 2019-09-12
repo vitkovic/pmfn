@@ -28,10 +28,12 @@ class Deduction extends Entity
      */
     protected $_accessible = [
         'amount' => true,
+        'percentage' => true,
         'card_id' => true,
         'turnover_id' => true,
         'description' => true,
         'card' => true,
-        'turnover' => true
+        'turnover' => true,
+        'state' => true,
     ];
 }

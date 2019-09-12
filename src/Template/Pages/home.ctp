@@ -7,7 +7,8 @@
 <nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Links') ?></li>
-        <li><?= $this->Html->link(__('New Business'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New Business'), ['controller' => 'Businesses','action' => 'add']) ?></li>
+          <li><?= $this->Html->link(__('List Business'), ['controller' => 'Businesses','action' => 'index']) ?></li>
         <hr/>
         <li><?= $this->Html->link(__('List Managers'), ['controller' => 'Managers', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Manager'), ['controller' => 'Managers', 'action' => 'add']) ?></li>

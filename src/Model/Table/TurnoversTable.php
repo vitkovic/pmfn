@@ -69,9 +69,9 @@ class TurnoversTable extends Table
             ->notEmptyString('Amount');
 
         $validator
-            ->decimal('Deduction')
-            ->requirePresence('Deduction', 'create')
-            ->notEmptyString('Deduction');
+        ->decimal('Deduction')
+        ->requirePresence('Amount', 'create')
+        ->notEmptyString('Amount');
 
         $validator
             ->scalar('Description')

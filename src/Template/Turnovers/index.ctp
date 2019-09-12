@@ -8,8 +8,10 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Turnover'), ['action' => 'add']) ?></li>
+        <hr>
         <li><?= $this->Html->link(__('List Businesses'), ['controller' => 'Businesses', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Business'), ['controller' => 'Businesses', 'action' => 'add']) ?></li>
+        <hr>
         <li><?= $this->Html->link(__('List Deductions'), ['controller' => 'Deductions', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Deduction'), ['controller' => 'Deductions', 'action' => 'add']) ?></li>
     </ul>
@@ -34,8 +36,8 @@
             <tr>
                 <td><?= $this->Number->format($turnover->id) ?></td>
                 <td><?= $this->Number->format($turnover->Type) ?></td>
-                <td><?= $this->Number->format($turnover->Amount) ?></td>
-                <td><?= $this->Number->format($turnover->Deduction) ?></td>
+                <td><?= $this->Number->format($turnover->Amount,['places' => 2]) ?></td>
+                <td><?= $this->Number->format($turnover->Deduction,['places' => 2]) ?></td>
                 <td><?= h($turnover->Description) ?></td>
                 <td><?= h($turnover->created_at) ?></td>
                 <td><?= $turnover->has('business') ? $this->Html->link($turnover->business->id, ['controller' => 'Businesses', 'action' => 'view', $turnover->business->id]) : '' ?></td>

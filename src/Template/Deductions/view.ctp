@@ -9,10 +9,13 @@
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('Edit Deduction'), ['action' => 'edit', $deduction->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete Deduction'), ['action' => 'delete', $deduction->id], ['confirm' => __('Are you sure you want to delete # {0}?', $deduction->id)]) ?> </li>
+        <hr>
         <li><?= $this->Html->link(__('List Deductions'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Deduction'), ['action' => 'add']) ?> </li>
+        <hr>
         <li><?= $this->Html->link(__('List Cards'), ['controller' => 'Cards', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Card'), ['controller' => 'Cards', 'action' => 'add']) ?> </li>
+        <hr>
         <li><?= $this->Html->link(__('List Turnovers'), ['controller' => 'Turnovers', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Turnover'), ['controller' => 'Turnovers', 'action' => 'add']) ?> </li>
     </ul>
@@ -32,13 +35,21 @@
             <th scope="row"><?= __('Description') ?></th>
             <td><?= h($deduction->description) ?></td>
         </tr>
+         <tr>
+            <th scope="row"><?= __('State') ?></th>
+            <td><?php if ($this->Number->format($deduction->state)==1) {echo "Static";} else {echo "Dynamic";} ?></td>
+        </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($deduction->id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Amount') ?></th>
-            <td><?= $this->Number->format($deduction->amount) ?></td>
+            <td><?= $this->Number->format($deduction->amount,['places' => 2]) ?></td>
+        </tr>
+         <tr>
+            <th scope="row"><?= __('Percentage') ?></th>
+            <td><?= $this->Number->format($deduction->percentage,['places' => 2, 'after'=>'%']) ?></td>
         </tr>
     </table>
 </div>

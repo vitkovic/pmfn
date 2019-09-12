@@ -60,9 +60,11 @@ class BusinessesTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->scalar('id')
-            ->maxLength('id', 50)
-            ->allowEmptyString('id', null, 'create');
+        ->scalar('id')
+        ->maxLength('id', 255)
+        ->requirePresence('id', 'create')
+        ->notEmptyString('id');
+        
 
         $validator
             ->scalar('business_name')
@@ -76,26 +78,9 @@ class BusinessesTable extends Table
             ->requirePresence('Description', 'create')
             ->notEmptyString('Description');
 
-        $validator
-            ->date('created_at')
-            ->requirePresence('created_at', 'create')
-            ->notEmptyDate('created_at');
+       
 
-        $validator
-            ->integer('created_by')
-            ->requirePresence('created_by', 'create')
-            ->notEmptyString('created_by');
-
-        $validator
-            ->date('last_modified_at')
-            ->requirePresence('last_modified_at', 'create')
-            ->notEmptyDate('last_modified_at');
-
-        $validator
-            ->integer('last_modified_by')
-            ->requirePresence('last_modified_by', 'create')
-            ->notEmptyString('last_modified_by');
-
+        
         return $validator;
     }
 
